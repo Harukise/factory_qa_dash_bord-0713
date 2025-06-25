@@ -7,7 +7,8 @@
 
 ## 📸 スクリーンショット
 
-![フロントエンド画面](images/frontend_UI.png)
+
+![フロントエンドUI](./frontend_UI.png)
 
 > ※ `/images/preview.png` に画面キャプチャを保存してください。
 
