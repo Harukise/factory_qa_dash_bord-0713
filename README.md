@@ -35,7 +35,7 @@
 
 ![アプリ画面](frontend_UI.png)
 
-> ※ `/images/preview.png` に画面キャプチャを保存してください。
+
 
 ---
 
