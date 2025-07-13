@@ -87,6 +87,16 @@
                 <div class="card">
                     <h3>タンク残量チェック</h3>
                     <div class="form-group">
+                        <label>ロット番号</label>
+                        <select id="resinLotNumber">
+                            <option value="">ロットを選択</option>
+                            <option value="250614-GT01">250614-GT01（緑茶）</option>
+                            <option value="250614-HT01">250614-HT01（ほうじ茶）</option>
+                            <option value="250614-BT01">250614-BT01（紅茶）</option>
+                            <option value="250614-XX01">250614-XX01（その他）</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>タンク番号</label>
                         <select id="tankNumber">
                             <option value="TANK-001">TANK-001</option>
@@ -94,7 +104,6 @@
                             <option value="TANK-003">TANK-003</option>
                         </select>
                     </div>
-                                
                     <div class="form-group">
                         <label>残量状況</label>
                         <select id="resinStatus">
@@ -121,12 +130,14 @@
                         <label>補充者</label>
                         <input type="text" id="resinSupplier" placeholder="補充者名を入力">
                     </div>
-
-                     <div class="form-group" >
-                            <label>備考</label>
-                            <input type="text" id="resinNotes" placeholder="例: 補充タイミング遅延あり">
+                    <div class="form-group">
+                        <label>確認者</label>
+                        <input type="text" id="resinSupplyChecker" placeholder="確認者名を入力">
                     </div>
-
+                    <div class="form-group" >
+                        <label>備考</label>
+                        <input type="text" id="resinNotes" placeholder="例: 補充タイミング遅延あり">
+                    </div>
                     <button class="btn btn-success" onclick="recordResinSupply()" id="resinSupplyBtn">
                         補充完了記録
                         <span class="loading" id="resinSupplyLoading"></span>
@@ -138,12 +149,13 @@
                 <thead>
                     <tr>
                         <th>日時</th>
+                        <th>ロット</th>
                         <th>タンク</th>
                         <th>状況</th>
                         <th>作業者</th>
                         <th>補充量</th>
-                        <th>補充者</th> 
-                        <th>備考</th>   
+                        <th>補充者</th>
+                        <th>備考</th>
                         <th>同期状態</th>
                     </tr>
                 </thead>
@@ -210,6 +222,16 @@
                 <div class="card">
                     <h3>品質チェック</h3>
                     <div class="form-group">
+                        <label>ロット番号</label>
+                        <select id="preformLotNumber">
+                            <option value="">ロットを選択</option>
+                            <option value="250614-GT01">250614-GT01（緑茶）</option>
+                            <option value="250614-HT01">250614-HT01（ほうじ茶）</option>
+                            <option value="250614-BT01">250614-BT01（紅茶）</option>
+                            <option value="250614-XX01">250614-XX01（その他）</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>サンプル番号</label>
                         <input type="text" id="sampleNumber" placeholder="SAMPLE-001">
                     </div>
@@ -245,12 +267,12 @@
                 <thead>
                     <tr>
                         <th>日時</th>
+                        <th>ロット</th>
                         <th>サンプル</th>
                         <th>重量</th>
                         <th>形状</th>
                         <th>判定</th>
                         <th>検査者</th>
-                        <th>処理</th>
                         <th>同期状態</th>
                     </tr>
                 </thead>
@@ -264,6 +286,16 @@
             <div class="grid">
                 <div class="card">
                     <h3>成型品質チェック</h3>
+                    <div class="form-group">
+                        <label>ロット番号</label>
+                        <select id="moldingLotNumber">
+                            <option value="">ロットを選択</option>
+                            <option value="250614-GT01">250614-GT01（緑茶）</option>
+                            <option value="250614-HT01">250614-HT01（ほうじ茶）</option>
+                            <option value="250614-BT01">250614-BT01（紅茶）</option>
+                            <option value="250614-XX01">250614-XX01（その他）</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>製品番号</label>
                         <input type="text" id="productNumber" placeholder="PROD-001">
@@ -296,12 +328,12 @@
                 <thead>
                     <tr>
                         <th>日時</th>
+                        <th>ロット</th>
                         <th>製品</th>
                         <th>厚み</th>
                         <th>形状</th>
                         <th>判定</th>
                         <th>検査者</th>
-                        <th>処理</th>
                         <th>同期状態</th>
                     </tr>
                 </thead>
@@ -317,7 +349,13 @@
                     <h3>冷却時間記録</h3>
                     <div class="form-group">
                         <label>ロット番号</label>
-                        <input type="text" id="coolingLot" placeholder="LOT-YYYYMMDD-001">
+                        <select id="coolingLot">
+                            <option value="">ロットを選択</option>
+                            <option value="250614-GT01">250614-GT01（緑茶）</option>
+                            <option value="250614-HT01">250614-HT01（ほうじ茶）</option>
+                            <option value="250614-BT01">250614-BT01（紅茶）</option>
+                            <option value="250614-XX01">250614-XX01（その他）</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>冷却開始時間</label>
@@ -348,6 +386,7 @@
                         <th>冷却時間</th>
                         <th>判定</th>
                         <th>作業者</th>
+                        <th>備考</th>
                         <th>同期状態</th>
                     </tr>
                 </thead>
@@ -361,6 +400,16 @@
             <div class="grid">
                 <div class="card">
                     <h3>最終検査</h3>
+                    <div class="form-group">
+                        <label>ロット番号</label>
+                        <select id="inspectionLotNumber">
+                            <option value="">ロットを選択</option>
+                            <option value="250614-GT01">250614-GT01（緑茶）</option>
+                            <option value="250614-HT01">250614-HT01（ほうじ茶）</option>
+                            <option value="250614-BT01">250614-BT01（紅茶）</option>
+                            <option value="250614-XX01">250614-XX01（その他）</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>検査ID</label>
                         <input type="text" id="inspectionId" placeholder="INS-001">
@@ -387,6 +436,10 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>備考</label>
+                        <input type="text" id="inspectionNotes" placeholder="検査時の気になる点などを入力">
+                    </div>
+                    <div class="form-group">
                         <label>検査者</label>
                         <input type="text" id="finalInspector" placeholder="検査者名を入力">
                     </div>
@@ -401,13 +454,16 @@
                 <thead>
                     <tr>
                         <th>日時</th>
+                        <th>ロット</th>
                         <th>検査ID</th>
                         <th>外観</th>
                         <th>寸法</th>
                         <th>耐圧</th>
                         <th>総合判定</th>
                         <th>検査者</th>
+                        <th>備考</th>
                         <th>処理</th>
+                        <th>同期状態</th>
                     </tr>
                 </thead>
                 <tbody id="inspectionTable"></tbody>
@@ -422,7 +478,7 @@
                     <h3>データベース検索</h3>
                     <div class="form-group">
                         <label>ロット番号で検索</label>
-                        <input type="text" id="searchLot" placeholder="LOT-YYYYMMDD-001">
+                        <select id="searchLot"><option value="">ロット番号を選択</option></select>
                     </div>
                     <button class="btn btn-primary" onclick="searchLot()" id="searchBtn">
                         データベース検索
@@ -506,7 +562,11 @@
                     this.updateSyncStatus('syncing', '同期中...');
                     
                     // 実際のAPI接続
-                    const response = await fetch(`http://localhost:3000/api/${tableName.replace('_', '-')}`, {
+                    let endpoint = `http://localhost:3000/api/${tableName.replace('_', '-')}`;
+                    if (tableName === 'temperature') {
+                        endpoint = 'http://localhost:3000/api/temperature-record';
+                    }
+                    const response = await fetch(endpoint, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -523,7 +583,7 @@
                     const result = await response.json();
                     this.lastSyncTime = new Date();
                     this.updateSyncStatus('online', 'データベース接続済み');
-                    return { success: true, id: result.id };
+                    return { success: true, record: result.record };
                 } catch (error) {
                     console.error('同期失敗:', error);
                     this.syncQueue.push({ tableName, data, timestamp: new Date() });
@@ -554,21 +614,86 @@
                     throw new Error('データベースがオフラインです');
                 }
 
-                return new Promise((resolve) => {
-                    setTimeout(() => {
-                        const mockResults = [
-                            {
-                                process: '温度管理',
-                                datetime: new Date().toLocaleString('ja-JP'),
-                                details: `ロット: ${query}`,
-                                operator: 'システム検索',
-                                result: 'OK',
-                                source: 'Database'
-                            }
-                        ];
-                        resolve(mockResults);
-                    }, 800);
+                // 各工程のデータをロット番号でフィルタ
+                const results = [];
+
+                // 樹脂
+                resinData.filter(item => item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: '樹脂',
+                        datetime: item.datetime,
+                        details: `タンク: ${item.tankNumber ?? ''} 状態: ${item.status ?? ''}`,
+                        operator: item.checker ?? '',
+                        result: item.status ?? '',
+                        source: 'resin'
+                    });
                 });
+
+                // 温度
+                temperatureData.filter(item => item.lot === query || item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: '温度管理',
+                        datetime: item.datetime,
+                        details: `設定温度: ${item.setTemp ?? ''} 実測: ${item.actualTemp ?? ''}`,
+                        operator: item.checker ?? '',
+                        result: item.judgment ?? '',
+                        source: 'temperature'
+                    });
+                });
+
+                // プリフォーム
+                preformData.filter(item => item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: 'プリフォーム',
+                        datetime: item.datetime,
+                        details: `サンプル: ${item.sampleNumber ?? ''} 重量: ${item.weight ?? ''}`,
+                        operator: item.inspector ?? '',
+                        result: item.shapeEval ?? '',
+                        source: 'preform'
+                    });
+                });
+
+                // 成形
+                moldingData.filter(item => item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: '成形',
+                        datetime: item.datetime,
+                        details: `製品番号: ${item.productNumber ?? ''} 厚み: ${item.thickness ?? ''}`,
+                        operator: item.inspector ?? '',
+                        result: item.shapeEval ?? '',
+                        source: 'molding'
+                    });
+                });
+
+                // 冷却
+                coolingData.filter(item => item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: '冷却',
+                        datetime: item.datetime,
+                        details: `開始: ${item.startTime ?? ''} 終了: ${item.endTime ?? ''}`,
+                        operator: item.operator ?? '',
+                        result: item.judgment ?? '',
+                        source: 'cooling'
+                    });
+                });
+
+                // 検査
+                inspectionData.filter(item => item.lotNumber === query).forEach(item => {
+                    results.push({
+                        process: '検査',
+                        datetime: item.datetime,
+                        details: `検査ID: ${item.inspectionId ?? ''}`,
+                        operator: item.inspector ?? '',
+                        result: item.overallJudgment ?? '',
+                        source: 'inspection'
+                    });
+                });
+
+                // 日時で降順ソート
+                results.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+
+                // 疑似的な遅延
+                return new Promise(resolve => setTimeout(() => resolve(results), 500));
             }
         }
 
@@ -582,6 +707,14 @@
         let moldingData = [];
         let coolingData = [];
         let inspectionData = [];
+
+        // ロットマスターリスト（ここに全ロットを追加）
+        const lotMasterList = [
+            "250614-GT01", // 緑茶
+            "250614-GT02", // 烏龍茶
+            "250614-GT03", // 麦茶
+            // 必要に応じて他のロットも追加
+        ];
 
         // タブ切り替え機能
         function showTab(tabName) {
@@ -618,7 +751,7 @@
             const tbody = document.getElementById(tableId);
             tbody.innerHTML = '';
             
-            data.slice(-10).reverse().forEach(item => {
+            data.slice(-5).reverse().forEach(item => {
                 const row = tbody.insertRow();
                 columns.forEach(column => {
                     const cell = row.insertCell();
@@ -646,40 +779,34 @@
         async function recordResinCheck() {
             const btn = document.getElementById('resinCheckBtn');
             const loadingId = 'resinCheckLoading';
-            
+            const lotNumber = document.getElementById('resinLotNumber').value;
             const tankNumber = document.getElementById('tankNumber').value;
             const resinStatus = document.getElementById('resinStatus').value;
             const resinChecker = document.getElementById('resinChecker').value;
-
-            if (!resinChecker) {
-                showAlert('resinAlert', 'warning', '確認者名を入力してください');
+            if (!resinChecker || !lotNumber) {
+                showAlert('resinAlert', 'warning', 'ロット番号と確認者名を入力してください');
                 return;
             }
-
             btn.disabled = true;
             showLoading(loadingId, true);
-
             const record = {
                 datetime: new Date().toLocaleString('ja-JP'),
                 tankNumber,
                 status: resinStatus,
                 checker: resinChecker,
-                
+                lotNumber,
                 amount: '-',
                 syncStatus: 'syncing'
             };
-
             try {
                 const syncResult = await syncManager.syncData('resin_check', record);
                 record.syncStatus = syncResult.success ? 'synced' : 'queued';
-                
                 resinData.push(record);
-                updateTable('resinTable', resinData, ['datetime', 'tankNumber', 'status','checker',
-                'amount', 'supplier', 'notes', 'syncStatus']);
-                
+                updateTable('resinTable', resinData, ['datetime', 'lotNumber', 'tankNumber', 'status', 'checker', 'amount', 'supplier', 'notes', 'syncStatus']);
                 showAlert('resinAlert', 'success', '樹脂チェックを記録しました');
                 document.getElementById('resinChecker').value = '';
-                
+                document.getElementById('resinLotNumber').value = '';
+                updateSearchLotDropdown();
             } catch (error) {
                 record.syncStatus = 'failed';
                 showAlert('resinAlert', 'danger', 'エラーが発生しました: ' + error.message);
@@ -689,80 +816,73 @@
             }
         }
 
-      async function recordResinSupply() {
-  const btn = document.getElementById('resinSupplyBtn');
-  const loadingId = 'resinSupplyLoading';
-
-  const tankNumber = document.getElementById('tankNumber')?.value || '';
-  const resinAmountRaw = document.getElementById('resinAmount')?.value || '';
-  const resinSupplier = document.getElementById('resinSupplier')?.value || '';
-  const resinNotes = document.getElementById('resinNotes')?.value || '';
-
-  const cleanedAmount = resinAmountRaw.replace(/[^\d.]/g, '');
-  const amountValue = parseFloat(cleanedAmount);
-
-  if (!resinSupplier || isNaN(amountValue)) {
-    showAlert('resinAlert', 'warning', '補充者名と補充量（数値）を正しく入力してください');
-    return;
-  }
-
-  const record = {
-    datetime: new Date().toLocaleString('ja-JP'),
-    tankNumber,
-    status: 'OK',
-    amount: amountValue,
-    supplier: resinSupplier || null,
-  notes: resinNotes || null,
-    syncStatus: 'syncing'
-  };
-
-  console.log('✅ resin-supply record:', record);
-
-  btn.disabled = true;
-  showLoading(loadingId, true);
-
-  try {
-    const syncResult = await syncManager.syncData('resin_supply', record);
-    record.syncStatus = syncResult.success ? 'synced' : 'queued';
-
-    resinData.push(record);
-    updateTable('resinTable', resinData, [
-      'datetime', 'tankNumber', 'status','checker',
-       'amount', 'supplier', 'notes', 'syncStatus'
-    ]);
-
-    showAlert('resinAlert', 'success', '樹脂補充を記録しました');
-
-    document.getElementById('resinAmount').value = '';
-    document.getElementById('resinSupplier').value = '';
-    document.getElementById('resinNotes').value = '';
-  } catch (error) {
-    record.syncStatus = 'failed';
-    showAlert('resinAlert', 'danger', 'エラーが発生しました: ' + error.message);
-  } finally {
-    btn.disabled = false;
-    showLoading(loadingId, false);
-  }
-}
-
-
-
-
-        
-
-       
+        async function recordResinSupply() {
+            const btn = document.getElementById('resinSupplyBtn');
+            const loadingId = 'resinSupplyLoading';
+            const lotNumber = document.getElementById('resinLotNumber').value;
+            const tankNumber = document.getElementById('tankNumber')?.value || '';
+            const resinAmountRaw = document.getElementById('resinAmount')?.value || '';
+            const resinSupplier = document.getElementById('resinSupplier')?.value || '';
+            const resinNotes = document.getElementById('resinNotes')?.value || '';
+            const resinSupplyChecker = document.getElementById('resinSupplyChecker')?.value || '';
+            const cleanedAmount = resinAmountRaw.replace(/[^\d.]/g, '');
+            const amountValue = parseFloat(resinAmountRaw);
+            if (!resinSupplier || !resinSupplyChecker || isNaN(amountValue) || !lotNumber) {
+                showAlert('resinAlert', 'warning', 'ロット番号・補充者名・確認者名・補充量（数値）を正しく入力してください');
+                return;
+            }
+            const record = {
+                datetime: new Date().toLocaleString('ja-JP'),
+                tankNumber,
+                status: 'OK',
+                checker: resinSupplyChecker,
+                amount: amountValue,
+                supplier: resinSupplier || null,
+                notes: resinNotes || null,
+                lotNumber,
+                syncStatus: 'syncing'
+            };
+            console.log('✅ resin-supply record:', record);
+            btn.disabled = true;
+            showLoading(loadingId, true);
+            try {
+                const syncResult = await syncManager.syncData('resin_supply', record);
+                record.syncStatus = syncResult.success ? 'synced' : 'queued';
+                resinData.push(record);
+                updateTable('resinTable', resinData, [
+                    'datetime', 'lotNumber', 'tankNumber', 'status', 'checker',
+                    'amount', 'supplier', 'notes', 'syncStatus'
+                ]);
+                showAlert('resinAlert', 'success', '樹脂補充を記録しました');
+                document.getElementById('resinAmount').value = '';
+                document.getElementById('resinSupplier').value = '';
+                document.getElementById('resinSupplyChecker').value = '';
+                document.getElementById('resinNotes').value = '';
+                document.getElementById('resinLotNumber').value = '';
+                updateSearchLotDropdown();
+            } catch (error) {
+                record.syncStatus = 'failed';
+                showAlert('resinAlert', 'danger', 'エラーが発生しました: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                showLoading(loadingId, false);
+            }
+        }
 
         // 温度管理機能
         async function recordTemperature() {
             const btn = document.getElementById('tempRecordBtn');
             const loadingId = 'tempRecordLoading';
             
-            const lotNumber = document.getElementById('lotNumber').value;
-            const setTemp = parseFloat(document.getElementById('setTemp').value);
-            const actualTemp = parseFloat(document.getElementById('actualTemp').value);
-            const tempChecker = document.getElementById('tempChecker').value;
+            const lotNumber = document.getElementById('lotNumber').value || null;
+            const setTempRaw = document.getElementById('setTemp').value;
+            const actualTempRaw = document.getElementById('actualTemp').value;
+            const setTemp = setTempRaw !== '' ? parseFloat(setTempRaw) : null;
+            const actualTemp = actualTempRaw !== '' ? parseFloat(actualTempRaw) : null;
+            const tempChecker = document.getElementById('tempChecker').value || null;
+            const notes = null; // 備考欄があれば document.getElementById('tempNotes').value || null;
 
-            if (!lotNumber || !actualTemp || !tempChecker) {
+            if (!lotNumber || actualTemp === null || !tempChecker) {
                 showAlert('tempAlert', 'warning', '全ての項目を入力してください');
                 return;
             }
@@ -770,18 +890,16 @@
             btn.disabled = true;
             showLoading(loadingId, true);
 
-            const difference = actualTemp - setTemp;
-            const judgment = Math.abs(difference) <= 5 ? 'OK' : 'NG';
+            const difference = (setTemp !== null && actualTemp !== null) ? actualTemp - setTemp : null;
+            const judgment = (difference !== null && Math.abs(difference) <= 5) ? 'OK' : 'NG';
 
             const record = {
-                datetime: new Date().toLocaleString('ja-JP'),
-                lot: lotNumber,
-                setTemp: setTemp + '°C',
-                actualTemp: actualTemp + '°C',
-                difference: (difference > 0 ? '+' : '') + difference.toFixed(1) + '°C',
-                judgment,
+                datetime: new Date().toISOString().slice(0, 19).replace('T', ' '),
+                lotNumber,
+                setTemp,
+                actualTemp,
                 checker: tempChecker,
-                syncStatus: 'syncing'
+                notes
             };
 
             try {
@@ -813,58 +931,44 @@
         async function recordPreformCheck() {
             const btn = document.getElementById('preformCheckBtn');
             const loadingId = 'preformCheckLoading';
-            
-            const sampleNumber = document.getElementById('sampleNumber').value;
-            const preformWeight = parseFloat(document.getElementById('preformWeight').value);
-            const shapeEval = document.getElementById('shapeEval').value;
-            const preformInspector = document.getElementById('preformInspector').value;
-
-            if (!sampleNumber || !preformWeight || !preformInspector) {
-                showAlert('preformAlert', 'warning', '全ての必須項目を入力してください');
+            const lotNumber = document.getElementById('preformLotNumber').value;
+            const sampleNumber = document.getElementById('sampleNumber').value || null;
+            const preformWeightRaw = document.getElementById('preformWeight').value;
+            const preformWeight = preformWeightRaw !== '' ? parseFloat(preformWeightRaw) : null;
+            const shapeEval = document.getElementById('shapeEval').value || null;
+            const preformInspector = document.getElementById('preformInspector').value || null;
+            const notes = null;
+            if (!sampleNumber || preformWeight === null || !shapeEval || !preformInspector || !lotNumber) {
+                showAlert('preformAlert', 'warning', '全ての必須項目（ロット番号含む）を入力してください');
                 return;
             }
-
             btn.disabled = true;
             showLoading(loadingId, true);
-
-            const standardWeight = 23.5;
-            const tolerance = 0.5;
-            const weightJudgment = Math.abs(preformWeight - standardWeight) <= tolerance ? 'OK' : 'NG';
-            const overallJudgment = (weightJudgment === 'OK' && shapeEval === '良好') ? 'OK' : 'NG';
-
-            let action = '合格';
-            if (overallJudgment === 'NG') {
-                action = shapeEval === '廃棄' ? '廃棄' : '再検査';
-            }
-
             const record = {
-                datetime: new Date().toLocaleString('ja-JP'),
-                sample: sampleNumber,
-                weight: preformWeight + 'g',
-                shape: shapeEval,
-                judgment: overallJudgment,
+                sampleNumber,
+                weight: preformWeight,
+                shapeEval,
                 inspector: preformInspector,
-                action,
-                syncStatus: 'syncing'
+                notes,
+                lotNumber
             };
-
+            console.log('送信データ:', record);
             try {
                 const syncResult = await syncManager.syncData('preform_check', record);
-                record.syncStatus = syncResult.success ? 'synced' : 'queued';
-                
-                preformData.push(record);
-                updateTable('preformTable', preformData, ['datetime', 'sample', 'weight', 'shape', 'judgment', 'inspector', 'action', 'syncStatus']);
-                
-                if (overallJudgment === 'NG') {
-                    showAlert('preformAlert', 'warning', 'プリフォームが基準外です！' + action + 'してください');
+                if (syncResult.success && syncResult.record) {
+                    syncResult.record.syncStatus = 'synced';
+                    preformData.push(syncResult.record);
                 } else {
-                    showAlert('preformAlert', 'success', 'プリフォーム品質チェックを記録しました');
+                    record.syncStatus = syncResult.success ? 'synced' : 'queued';
+                    preformData.push(record);
                 }
-                
+                updateTable('preformTable', preformData, ['datetime', 'lotNumber', 'sampleNumber', 'weight', 'shapeEval', 'weightJudgment', 'inspector', 'syncStatus']);
+                showAlert('preformAlert', 'success', 'プリフォーム品質チェックを記録しました');
                 document.getElementById('sampleNumber').value = '';
                 document.getElementById('preformWeight').value = '';
                 document.getElementById('preformInspector').value = '';
-                
+                document.getElementById('preformLotNumber').value = '';
+                updateSearchLotDropdown();
             } catch (error) {
                 record.syncStatus = 'failed';
                 showAlert('preformAlert', 'danger', 'エラーが発生しました: ' + error.message);
@@ -878,58 +982,54 @@
         async function recordMoldingCheck() {
             const btn = document.getElementById('moldingCheckBtn');
             const loadingId = 'moldingCheckLoading';
-            
-            const productNumber = document.getElementById('productNumber').value;
-            const thickness = parseFloat(document.getElementById('thickness').value);
-            const bottleShape = document.getElementById('bottleShape').value;
-            const moldingInspector = document.getElementById('moldingInspector').value;
-
-            if (!productNumber || !thickness || !moldingInspector) {
-                showAlert('moldingAlert', 'warning', '全ての必須項目を入力してください');
+            const lotNumber = document.getElementById('moldingLotNumber').value;
+            const productNumber = document.getElementById('productNumber').value || null;
+            const thicknessRaw = document.getElementById('thickness').value;
+            const thickness = thicknessRaw !== '' ? parseFloat(thicknessRaw) : null;
+            const shapeEval = document.getElementById('bottleShape').value || null;
+            const inspector = document.getElementById('moldingInspector').value || null;
+            const recommendedAction = null;
+            const notes = null;
+            if (!productNumber || thickness === null || !shapeEval || !inspector || !lotNumber) {
+                showAlert('moldingAlert', 'warning', '全ての必須項目（ロット番号含む）を入力してください');
                 return;
             }
-
             btn.disabled = true;
             showLoading(loadingId, true);
-
             const standardThickness = 0.3;
             const tolerance = 0.05;
             const thicknessJudgment = Math.abs(thickness - standardThickness) <= tolerance ? 'OK' : 'NG';
-            const overallJudgment = (thicknessJudgment === 'OK' && bottleShape === '正常') ? 'OK' : 'NG';
-
+            const overallJudgment = (thicknessJudgment === 'OK' && shapeEval === '正常') ? 'OK' : 'NG';
             let action = '合格';
             if (overallJudgment === 'NG') {
-                action = bottleShape === '廃棄' ? '廃棄' : '要調整';
+                action = shapeEval === '廃棄' ? '廃棄' : '要調整';
             }
-
             const record = {
-                datetime: new Date().toLocaleString('ja-JP'),
-                product: productNumber,
-                thickness: thickness + 'mm',
-                shape: bottleShape,
-                judgment: overallJudgment,
-                inspector: moldingInspector,
-                action,
-                syncStatus: 'syncing'
+                productNumber,
+                thickness,
+                shapeEval,
+                inspector,
+                recommendedAction,
+                notes,
+                lotNumber
             };
-
+            console.log('送信データ:', record);
             try {
                 const syncResult = await syncManager.syncData('molding_check', record);
-                record.syncStatus = syncResult.success ? 'synced' : 'queued';
-                
-                moldingData.push(record);
-                updateTable('moldingTable', moldingData, ['datetime', 'product', 'thickness', 'shape', 'judgment', 'inspector', 'action', 'syncStatus']);
-                
-                if (overallJudgment === 'NG') {
-                    showAlert('moldingAlert', 'warning', '成型品が基準外です！' + action + 'してください');
+                if (syncResult.success && syncResult.record) {
+                    syncResult.record.syncStatus = 'synced';
+                    moldingData.push(syncResult.record);
                 } else {
-                    showAlert('moldingAlert', 'success', '成型品質チェックを記録しました');
+                    record.syncStatus = syncResult.success ? 'synced' : 'queued';
+                    moldingData.push(record);
                 }
-                
+                updateTable('moldingTable', moldingData, ['datetime', 'lotNumber', 'productNumber', 'thickness', 'shapeEval', 'thicknessJudgment', 'inspector', 'syncStatus']);
+                showAlert('moldingAlert', 'success', '成型品質チェックを記録しました');
                 document.getElementById('productNumber').value = '';
                 document.getElementById('thickness').value = '';
                 document.getElementById('moldingInspector').value = '';
-                
+                document.getElementById('moldingLotNumber').value = '';
+                updateSearchLotDropdown();
             } catch (error) {
                 record.syncStatus = 'failed';
                 showAlert('moldingAlert', 'danger', 'エラーが発生しました: ' + error.message);
@@ -943,57 +1043,55 @@
         async function recordCooling() {
             const btn = document.getElementById('coolingBtn');
             const loadingId = 'coolingLoading';
-            
-            const coolingLot = document.getElementById('coolingLot').value;
-            const coolingStart = document.getElementById('coolingStart').value;
-            const coolingEnd = document.getElementById('coolingEnd').value;
-            const coolingOperator = document.getElementById('coolingOperator').value;
-
-            if (!coolingLot || !coolingStart || !coolingEnd || !coolingOperator) {
+            const lotNumber = document.getElementById('coolingLot').value || null;
+            const startTime = document.getElementById('coolingStart').value || null;
+            const endTime = document.getElementById('coolingEnd').value || null;
+            const operator = document.getElementById('coolingOperator').value || null;
+            const notes = null;
+            if (!lotNumber || !startTime || !endTime || !operator) {
                 showAlert('coolingAlert', 'warning', '全ての項目を入力してください');
                 return;
             }
-
             btn.disabled = true;
             showLoading(loadingId, true);
-
-            const startTime = new Date(coolingStart);
-            const endTime = new Date(coolingEnd);
-            const coolingTimeMs = endTime - startTime;
-            const coolingTimeMinutes = Math.round(coolingTimeMs / (1000 * 60));
-
-            const standardCoolingTime = 30; // 30分
-            const judgment = coolingTimeMinutes >= standardCoolingTime ? 'OK' : 'NG';
-
             const record = {
-                datetime: new Date().toLocaleString('ja-JP'),
-                lot: coolingLot,
-                startTime: startTime.toLocaleString('ja-JP'),
-                endTime: endTime.toLocaleString('ja-JP'),
-                coolingTime: coolingTimeMinutes + '分',
-                judgment,
-                operator: coolingOperator,
-                syncStatus: 'syncing'
+                lotNumber,
+                startTime,
+                endTime,
+                operator,
+                notes
             };
-
+            console.log('送信データ:', record);
             try {
                 const syncResult = await syncManager.syncData('cooling_log', record);
-                record.syncStatus = syncResult.success ? 'synced' : 'queued';
-                
-                coolingData.push(record);
-                updateTable('coolingTable', coolingData, ['datetime', 'lot', 'startTime', 'endTime', 'coolingTime', 'judgment', 'operator', 'syncStatus']);
-                
-                if (judgment === 'NG') {
-                    showAlert('coolingAlert', 'warning', '冷却時間が不足しています！確認してください');
+                console.log('サーバー返却:', syncResult);
+                if (syncResult.success && syncResult.record) {
+                    // 自動判定ロジック
+                    const minutes = syncResult.record.coolingTimeMinutes;
+                    let autoNote = '';
+                    if (minutes == null) {
+                        autoNote = '冷却時間異常';
+                    } else if (minutes < 15) {
+                        autoNote = '冷却時間不足';
+                    } else if (minutes > 45) {
+                        autoNote = '冷却時間超過';
+                    } else {
+                        autoNote = '標準冷却時間';
+                    }
+                    syncResult.record.notes = record.notes || autoNote;
+                    syncResult.record.syncStatus = 'synced';
+                    coolingData.push(syncResult.record);
                 } else {
-                    showAlert('coolingAlert', 'success', '冷却時間ログを記録しました');
+                    record.syncStatus = syncResult.success ? 'synced' : 'queued';
+                    coolingData.push(record);
                 }
-                
+                updateTable('coolingTable', coolingData, ['datetime', 'lotNumber', 'startTime', 'endTime', 'coolingTimeMinutes', 'judgment', 'operator', 'notes', 'syncStatus']);
+                showAlert('coolingAlert', 'success', '冷却時間ログを記録しました');
                 document.getElementById('coolingLot').value = '';
                 document.getElementById('coolingStart').value = '';
                 document.getElementById('coolingEnd').value = '';
                 document.getElementById('coolingOperator').value = '';
-                
+                updateSearchLotDropdown();
             } catch (error) {
                 record.syncStatus = 'failed';
                 showAlert('coolingAlert', 'danger', 'エラーが発生しました: ' + error.message);
@@ -1008,14 +1106,18 @@
             const btn = document.getElementById('inspectionBtn');
             const loadingId = 'inspectionLoading';
             
-            const inspectionId = document.getElementById('inspectionId').value;
-            const visualCheck = document.getElementById('visualCheck').value;
-            const dimensionCheck = document.getElementById('dimensionCheck').value;
-            const pressureCheck = document.getElementById('pressureCheck').value;
-            const finalInspector = document.getElementById('finalInspector').value;
+            const lotNumber = document.getElementById('inspectionLotNumber').value;
+            const inspectionId = document.getElementById('inspectionId').value || null;
+            const visualCheck = document.getElementById('visualCheck').value || null;
+            const dimensionCheck = document.getElementById('dimensionCheck').value || null;
+            const pressureCheck = document.getElementById('pressureCheck').value || null;
+            const inspector = document.getElementById('finalInspector').value || null;
+            const notes = document.getElementById('inspectionNotes').value || null;
+            const photoPath = null;
+            const recommendedAction = null;
 
-            if (!inspectionId || !finalInspector) {
-                showAlert('inspectionAlert', 'warning', '検査IDと検査者名を入力してください');
+            if (!inspectionId || !inspector || !lotNumber) {
+                showAlert('inspectionAlert', 'warning', 'ロット番号・検査IDと検査者名を入力してください');
                 return;
             }
 
@@ -1026,21 +1128,25 @@
             const action = overallJudgment === '合格' ? '出荷可' : '再検査';
 
             const record = {
-                datetime: new Date().toLocaleString('ja-JP'),
                 inspectionId,
-                visual: visualCheck,
-                dimension: dimensionCheck,
-                pressure: pressureCheck,
-                judgment: overallJudgment,
-                inspector: finalInspector,
-                action
+                visualCheck,
+                dimensionCheck,
+                pressureCheck,
+                inspector,
+                photoPath,
+                recommendedAction,
+                notes,
+                lotNumber
             };
+            console.log('送信データ:', record);
 
             try {
                 const syncResult = await syncManager.syncData('final_inspection', record);
-                
-                inspectionData.push(record);
-                updateTable('inspectionTable', inspectionData, ['datetime', 'inspectionId', 'visual', 'dimension', 'pressure', 'judgment', 'inspector', 'action']);
+                if (syncResult.success && syncResult.record) {
+                    syncResult.record.syncStatus = 'synced';
+                    inspectionData.push(syncResult.record);
+                }
+                updateTable('inspectionTable', inspectionData, ['datetime', 'lotNumber', 'inspectionId', 'visualCheck', 'dimensionCheck', 'pressureCheck', 'overallJudgment', 'inspector', 'notes', 'syncStatus']);
                 
                 if (overallJudgment === '不合格') {
                     showAlert('inspectionAlert', 'warning', '検査不合格です！再検査してください');
@@ -1050,7 +1156,8 @@
                 
                 document.getElementById('inspectionId').value = '';
                 document.getElementById('finalInspector').value = '';
-                
+                document.getElementById('inspectionLotNumber').value = '';
+                updateSearchLotDropdown();
             } catch (error) {
                 showAlert('inspectionAlert', 'danger', 'エラーが発生しました: ' + error.message);
             } finally {
@@ -1113,6 +1220,21 @@
             showAlert('traceabilityResult', 'success', 'データをエクスポートしました');
         }
 
+        // 全データ配列からロット番号を集めてドロップダウンを更新
+        function updateSearchLotDropdown() {
+            const lotSet = new Set(lotMasterList);
+            resinData.forEach(item => item.lotNumber && lotSet.add(item.lotNumber));
+            temperatureData.forEach(item => (item.lotNumber || item.lot) && lotSet.add(item.lotNumber || item.lot));
+            preformData.forEach(item => item.lotNumber && lotSet.add(item.lotNumber));
+            moldingData.forEach(item => item.lotNumber && lotSet.add(item.lotNumber));
+            coolingData.forEach(item => item.lotNumber && lotSet.add(item.lotNumber));
+            inspectionData.forEach(item => item.lotNumber && lotSet.add(item.lotNumber));
+            const lotList = Array.from(lotSet).filter(Boolean).sort();
+            const select = document.getElementById('searchLot');
+            if (!select) return;
+            select.innerHTML = '<option value="">ロット番号を選択</option>' + lotList.map(lot => `<option value="${lot}">${lot}</option>`).join('');
+        }
+
         // 初期化処理
         document.addEventListener('DOMContentLoaded', function() {
             // 現在の日時を冷却時間の開始時間に設定
@@ -1123,6 +1245,7 @@
             // サンプルデータの追加
             setTimeout(() => {
                 addSampleData();
+                updateSearchLotDropdown();
             }, 2000);
         });
 
@@ -1152,9 +1275,24 @@
             });
 
             // テーブルを更新
-            updateTable('resinTable', resinData, ['datetime', 'tankNumber', 'status', 'checker', 'amount', 'supplier', 'notes', 'syncStatus']);
+            updateTable('resinTable', resinData, ['datetime', 'lotNumber', 'tankNumber', 'status', 'checker', 'amount', 'supplier', 'notes', 'syncStatus']);
             updateTable('tempTable', temperatureData, ['datetime', 'lot', 'setTemp', 'actualTemp', 'difference', 'judgment', 'checker', 'syncStatus']);
         }
+
+        // プリフォーム品質確認タブの初期データ取得
+        async function loadPreformData() {
+            try {
+                const res = await fetch('http://localhost:3000/api/preform-checks');
+                let data = await res.json();
+                // 取得したサンプルデータにsyncStatus: 'synced'を付与
+                data = data.map(item => ({ ...item, syncStatus: 'synced' }));
+                preformData = data;
+                updateTable('preformTable', preformData, ['datetime', 'lotNumber', 'sampleNumber', 'weight', 'shapeEval', 'weightJudgment', 'inspector', 'syncStatus']);
+            } catch (e) {
+                showAlert('preformAlert', 'danger', 'サンプルデータの取得に失敗しました');
+            }
+        }
+        window.addEventListener('DOMContentLoaded', loadPreformData);
     </script>
 </body>
 </html>
